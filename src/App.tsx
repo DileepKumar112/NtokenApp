@@ -10,6 +10,7 @@ import AdminDashboard from './components/AdminDashboard';
 import TokenManagement from './components/TokenManagement';
 import CounterManagement from './components/CounterManagement';
 import ReportsSummary from './components/ReportsSummary';
+import Settings from './components/Settings';
 
 export type Screen = 
   | 'splash'
@@ -22,7 +23,8 @@ export type Screen =
   | 'admin-dashboard'
   | 'token-management'
   | 'counter-management'
-  | 'reports-summary';
+  | 'reports-summary'
+  | 'settings';
 
 export interface TokenData {
   number: string;
@@ -99,6 +101,9 @@ export default function App() {
       )}
       {currentScreen === 'reports-summary' && (
         <ReportsSummary onBack={() => setCurrentScreen('admin-dashboard')} />
+      )}
+      {currentScreen === 'settings' && (
+        <Settings onBack={() => setCurrentScreen('admin-dashboard')} />
       )}
     </div>
   );
